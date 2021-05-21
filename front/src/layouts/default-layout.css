@@ -1,0 +1,86 @@
+.default-layout {
+    width: 100vw;
+    min-height: 100vh;
+    overflow: auto;
+}
+
+.toaster {
+    position: fixed;
+    bottom: auto;
+    top: 10px;
+    left: 10px;
+    max-width: 300px;
+    min-width: 100px;
+}
+
+.toaster__item {
+    border-radius: 5px;
+    padding: 10px;
+    color: #ffffff;
+    margin-bottom: 10px;
+    cursor: default;
+    font-size: 14px;
+}
+
+.toaster__item_error {
+    background-color: #d50000;
+}
+
+.toaster__item_success {
+    background-color: #00c853;
+}
+
+.toaster__item_warning {
+    background-color: #ffd600;
+}
+
+.toaster__item_info {
+    background-color: #0091ea;
+}
+
+.container {
+    width: 100%;
+    padding: 0 16px;
+    margin-left: auto;
+    margin-right: auto;
+    height: calc(100vh - 50px);
+    overflow: auto;
+}
+
+.container__blocked {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(158, 158, 158, 0.5);
+}
+
+.container-scroll {
+    width: 100%;
+    padding: 20px 0;
+}
+
+@media screen and (min-width: 992px) {
+    .toaster {
+        bottom: 10px;
+        top: auto;
+    }
+
+    .container {
+        width: calc(100vw - 400px);
+        margin-left: 400px;
+        height: calc(100vh - 70px);
+    }
+
+    .container-scroll {
+        max-width: 1366px;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .container {
+        padding: 0 24px;
+    }
+}

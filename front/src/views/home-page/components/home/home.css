@@ -1,0 +1,43 @@
+.home {
+    padding: 10px 15px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.home .input {
+    margin-bottom: 10px;
+}
+
+.home__type-user {
+    margin-bottom: 10px;
+}
+
+.home__type-user > label {
+    cursor: pointer;
+    color: #e0e0e0;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+label.home__type-user_enabled {
+    color: #212121;
+}
+
+.home__type-auth {
+    margin: 10px 0 20px 0;
+}
+
+.home__type-auth > label {
+    cursor: pointer;
+    font-size: 12px;
+    margin-right: 5px;
+    color: #e0e0e0;
+    border-bottom-color: transparent;
+    font-weight: normal;
+}
+
+label.home__type-auth_enabled {
+    color: #0091ea;
+    border-bottom: 1px dashed #0091ea;
+    font-weight: bold;
+}

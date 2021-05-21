@@ -1,0 +1,28 @@
+.select__select {
+    z-index: 1;
+}
+
+.container__blocked {
+    z-index: 2;
+}
+
+.loader::before,
+.loader::after {
+    z-index: 3;
+}
+
+.left-panel {
+    z-index: 100;
+}
+
+.header__user-menu {
+    z-index: 101;
+}
+
+.toaster {
+    z-index: 1000;
+}
+
+.popup {
+    z-index: 10000;
+}

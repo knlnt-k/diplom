@@ -1,0 +1,105 @@
+.popup-create-task__view-form {
+    margin-bottom: 20px;
+}
+
+.popup-create-task__view-form .title2 {
+    margin-bottom: 20px;
+}
+
+.popup-create-task__view-form .text_small {
+    margin-bottom: 10px;
+}
+
+.popup-create-task__header-label {
+    font-size: 12px;
+    color: #9e9e9e;
+    cursor: default;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    margin: 0 10px 10px 0;
+}
+
+.popup-create-task__header-label-button {
+    text-decoration: underline;
+    color: #304ffe;
+    cursor: pointer;
+}
+
+.popup-create-task__header-label-button:hover {
+    text-decoration: none;
+}
+
+.popup-create-task__header-label-mark {
+    display: block;
+    margin-right: 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+}
+
+.popup-create-task__time-form {
+    border-top: 1px solid #9e9e9e;
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+.popup-create-task__submit-time-wrapper {
+    margin-top: auto;
+}
+
+.popup-create-task__submit-time-wrapper > .button {
+    margin-left: auto;
+}
+
+.popup-create-task__time-and-comments {
+    border-top: 1px solid #9e9e9e;
+    margin-top: 20px;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.popup-create-task__time-and-comment {
+    display: inline-block;
+    background-color: #1a237e;
+    padding: 15px 20px 10px;
+    border-radius: 7px;
+    position: relative;
+}
+
+.popup-create-task__time-and-comment:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.popup-create-task__time-and-comment::before {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 10px;
+    height: 10px;
+    z-index: 1;
+    left: -5px;
+    bottom: 20px;
+    transform: rotate(45deg);
+    background-color: #1a237e;
+}
+
+.popup-create-task__time-and-comment > .title3 {
+    color: #eeeeee;
+}
+
+.popup-create-task__time-and-comment > .text_small {
+    padding-top: 10px;
+    padding-left: 10px;
+    color: #eeeeee;
+}
+
+@media screen and (min-width: 576px) {
+    .popup-create-task .popup__body {
+        max-width: 500px;
+    }
+}

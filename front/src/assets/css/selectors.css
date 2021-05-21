@@ -1,0 +1,52 @@
+div.selector-for-forms__wrapper {
+    width: 100%;
+    border-color: #9e9e9e;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+div.selector-for-forms__wrapper_open {
+    border-radius: 5px 5px 0 0;
+}
+
+ul.selector-for-forms__select {
+    top: 38px;
+    border-radius: 0 0 5px 5px;
+    border-color: #9e9e9e;
+}
+
+li.selector-for-forms__option {
+    font-size: 14px;
+    padding: 10px;
+}
+
+li.selector-for-forms__option_current,
+li.selector-for-forms__option_current .selector-for-forms__priority-slot {
+    color: #304ffe;
+}
+
+li.selector-for-forms__option_multiple {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+li.selector-for-forms__option_multiple::before {
+    content: "";
+    display: block;
+    width: 13px;
+    height: 13px;
+    border-radius: 3px;
+    border: 1px solid #c5cae9;
+    margin-right: 5px;
+}
+
+li.selector-for-forms__option_current.selector-for-forms__option_multiple::before {
+    background-color: #304ffe;
+    background-image: url("~@/assets/icons/check_white.svg");
+    background-repeat: no-repeat;
+    background-position: 2px 1px;
+    background-size: 7px;
+}

@@ -1,0 +1,127 @@
+.select {
+	max-width: 100%;
+}
+
+.select_disabled {
+	position: relative;
+	opacity: 0.5;
+}
+
+.select_disabled::after {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: transparent;
+}
+
+.select__wrapper {
+	position: relative;
+	display: inline-flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-items: center;
+	justify-content: space-between;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	color: #171725;
+	background-color: transparent;
+	border: 1px solid #171725;
+	padding: 4px 8px;
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+.select__wrapper::after {
+	content: "";
+	display: block;
+	width: 10px;
+	height: 6px;
+	background-image: url("~@/assets/icons/arrow-down.svg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	flex: 0 0 auto;
+	transition: all .3s;
+}
+
+.select__wrapper_open {
+	border-radius: 10px 10px 0 0;
+}
+
+.select__wrapper_open::after {
+	transform: rotate(180deg);
+}
+
+.select__search {
+	border: none;
+	outline: none;
+	width: 100%;
+	padding-bottom: 4px;
+	background-color: transparent;
+	color: #171725;
+}
+
+.select__current {
+	padding-right: 27px;
+	padding-left: 8px;
+	margin-right: -8px;
+	margin-left: -8px;
+	min-height: 18px;
+}
+
+.select__placeholder {
+	color: #cecece;
+}
+
+.select__clear-button {
+	display: block;
+	width: 8px;
+	height: 8px;
+	padding: 0;
+	/*background-image: url("~@/assets/img/icons/close-black.svg");*/
+	background-size: cover;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+	margin-right: 16px;
+}
+
+.select__select {
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	width: calc(100% + 2px);
+	top: 29px;
+	left: -1px;
+	padding: 0;
+	border: 1px solid #171725;
+	border-radius: 0 0 10px 10px;
+	background-color: #ffffff;
+	overflow-y: auto;
+	overflow-x: hidden;
+	max-height: 300px;
+}
+
+.select__option {
+	display: inline-block;
+	padding: 0 8px;
+	transition: background-color .3s;
+	word-break: break-word;
+}
+
+.select__option_empty {
+	color: #cecece;
+}
+
+.select__option_current {
+	color: #ed1c24;
+}
+
+.select__option:hover {
+	background-color: #ebebef;
+}

@@ -1,0 +1,28 @@
+.projects__loader {
+    height: 200px;
+}
+
+.projects__row-project {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.projects__row-project-name {
+    display: block;
+    width: calc(100% - 40px);
+    font-size: 16px;
+    word-break: break-word;
+}
+
+.projects__view-button {
+    margin-left: auto;
+}
+
+@media screen and (min-width: 576px) {
+    .projects .popup__body {
+        max-width: 500px;
+    }
+}

@@ -1,0 +1,56 @@
+@import "normalize.css";
+@import "selectors.css";
+@import "elements-form.css";
+@import "loader.css";
+@import "z-index.css";
+
+ul, li, input, button, textarea,
+h1, h2, h3, h4, h5, h6,
+p {
+    padding: 0;
+    margin: 0;
+}
+
+li, ol {
+    list-style: none;
+}
+
+input, button, textarea {
+    border: none;
+    outline: none;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+*:disabled, button {
+    background-color: transparent;
+}
+
+*, *::before, *::after {
+    color: #1a237e;
+    font-family: Arial;
+    box-sizing: border-box;
+}
+
+.text-ellipsis {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.title2 {
+    font-size: 20px;
+}
+
+.title3 {
+    font-size: 16px;
+}
+
+.text_small {
+    font-size: 14px;
+}

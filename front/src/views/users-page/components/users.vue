@@ -5,7 +5,9 @@
       <Input class="users__search" v-model="search" :label="'Поиск'" />
       <List :rows="usersFiltered" class="users__items">
         <template #default="row">
-          <div class="label">#{{ row.data.login }}</div>
+          <div class="label">
+            #{{ row.data.login + " #" + row.data.profession.text }}
+          </div>
           <div class="users__user-item">
             <h2 class="title2">{{ row.data.fullName }}</h2>
             <Selector

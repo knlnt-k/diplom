@@ -63,8 +63,7 @@ export default defineComponent({
       );
     },
     handleClickTaskItem(task: ITask) {
-      this.$popups.list.newTask.payload.task = task;
-      this.$popups.toggleVisible("newTask");
+      this.$emit("openPopup", task);
     }
   }
 });

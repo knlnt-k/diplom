@@ -12,7 +12,10 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
+    "chart.js": "^3.2.1",
+    "chartjs-adapter-date-fns": "^1.1.0-beta.1",
     "core-js": "^3.6.5",
+    "date-fns": "^2.21.3",
     "datef": "^3.0.0",
     "jwt-decode": "^3.1.2",
     "vue": "^3.0.0",

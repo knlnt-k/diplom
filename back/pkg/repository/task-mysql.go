@@ -22,9 +22,9 @@ func NewTaskMySQL (db *sqlx.DB) *TaskMySQL {
 
 func (repo *TaskMySQL) CreateTask(task back.Task) (int64, back.Error) {
 	query := fmt.Sprintf(
-		"INSERT INTO `%s` (`name`, `description`, `user_id`, `priority`, `project_id`, `status`, `created`, `company_id`) VALUES ('%s', '%s', %d, %d, %d, 0, %d, %d)",
+		"INSERT INTO `%s` (`name`, `description`, `user_id`, `priority`, `project_id`, `status`, `created`, `company_id`) VALUES ('%s', '%s', %d, %d, %d, %d, %d, %d)",
 		TASKS_TABLE_NAME,
-		task.Name, task.Description, task.UserID, task.Priority, task.ProjectID, time.Now().Unix(), task.CompanyID,
+		task.Name, task.Description, task.UserID, task.Priority, task.ProjectID, task.Status, time.Now().Unix(), task.CompanyID,
 	)
 	result, error := repo.db.Exec(query)
 

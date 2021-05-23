@@ -50,7 +50,6 @@ export default defineComponent({
       this.getTasks();
       this.getProjects();
       this.getUsers();
-      this.$popups.list.newTask.payload.thenForEditTask = this.getTasks;
     },
     initFormFilter() {
       this.formFilter.elements.isOpenExtendsFilter.methods.click = () => {
@@ -171,6 +170,11 @@ export default defineComponent({
       } else {
         this.$toaster.alert("Нет доступа");
       }
+    },
+    openPopup(task: ITask) {
+      this.$popups.list.newTask.payload.task = task;
+      this.$popups.list.newTask.payload.thenForEditTask = this.getTasks;
+      this.$popups.toggleVisible("newTask");
     }
   },
   watch: {

@@ -95,7 +95,11 @@ export default defineComponent({
 
         this.getUsers().finally(() => {
           this.getProjects().finally(() => {
-            this.apiState.isLoad = false;
+            if (this.task) {
+              this.getTask();
+            } else {
+              this.apiState.isLoad = false;
+            }
           });
         });
       }
@@ -413,7 +417,9 @@ export default defineComponent({
             this.apiState.isLoad = false;
 
             if (response.answer && response.answer.tasks) {
-              this.task = TaskToInternal(response.answer.tasks[0]);
+              this.$popups.list.newTask.payload.task = TaskToInternal(
+                response.answer.tasks[0]
+              );
             }
           });
       }

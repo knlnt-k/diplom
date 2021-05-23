@@ -26,4 +26,8 @@
 .popup-update-user .title2 {
   margin-bottom: 20px;
 }
+
+.popup-update-user .info-message {
+  margin-bottom: 20px;
+}
 </style>

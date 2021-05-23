@@ -6,6 +6,7 @@
       :pagination="pagination"
       :api-state="apiState"
       @deleteTask="deleteTasks"
+      @openPopup="openPopup"
     />
   </div>
 </template>

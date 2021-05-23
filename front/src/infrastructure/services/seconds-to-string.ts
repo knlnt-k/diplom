@@ -25,23 +25,4 @@ export const secondsToString: (seconds: number) => string = seconds => {
   }
 
   return answer;
-
-  // if (seconds >= hourInSeconds) {
-  //   if (seconds === hourInSeconds) {
-  //     return "1 ч";
-  //   } else if (seconds >= hourInSeconds * 8) {
-  //     if (seconds === hourInSeconds * 8) {
-  //       return "1 д";
-  //     } else {
-  //       return parseInt(String(seconds / countSecondsInDay)) + "д" +  ;
-  //     }
-  //   } else {
-  //     return (
-  //       parseInt(String(seconds / hourInSeconds)) +
-  //       " ч " +
-  //       (seconds % hourInSeconds) +
-  //       " м"
-  //     );
-  //   }
-  // }
 };

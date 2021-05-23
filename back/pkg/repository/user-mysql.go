@@ -57,9 +57,9 @@ func (repo *UserMySQL) GetUsers(ids []int, filter back.UserFilter) ([]back.User,
 
 func (repo *UserMySQL) UpdateUser(user back.User) (int, back.Error) {
 	query := fmt.Sprintf(
-		"UPDATE `%s` SET `name`='%s', `last_name`='%s', `profession`=%d, `access`=%d",
+		"UPDATE `%s` SET `name`='%s', `last_name`='%s', `profession`=%d, `access`=%d WHERE `id`=%d",
 		USERS_TABLE_NAME,
-		user.Name, user.LastName, user.Profession, user.Access,
+		user.Name, user.LastName, user.Profession, user.Access, user.Id,
 	)
 
 	result, error := repo.db.Exec(query)

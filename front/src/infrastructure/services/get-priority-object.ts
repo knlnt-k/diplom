@@ -6,17 +6,17 @@ export const getPriorityObject: (
   const priorityObject: IPriorityObject = {
     priority,
     text: "Обычная",
-    color: "#a5d6a7"
+    color: "#00c853"
   };
 
   if (priority === Priorities.serious) {
     priorityObject.text = "Серьезная";
-    priorityObject.color = "#fff176";
+    priorityObject.color = "#ffd600";
   }
 
   if (priority === Priorities.critical) {
     priorityObject.text = "Критическая";
-    priorityObject.color = "#ef5350";
+    priorityObject.color = "#d50000";
   }
 
   return priorityObject;

@@ -13,18 +13,18 @@ func NewCommentsTasksService(repo repository.CommentsTasks) *CommentsTasksServic
 	return &CommentsTasksService{repo}
 }
 
-func(repo *CommentsTasksService) Set(data back.CommentsTasks) (int64, back.Error) {
-	return repo.Set(data)
+func(service *CommentsTasksService) Set(data back.CommentsTasks) (int64, back.Error) {
+	return service.repo.Set(data)
 }
 
-func(repo *CommentsTasksService) Update(data back.CommentsTasks) (int64, back.Error) {
-	return repo.Update(data)
+func(service *CommentsTasksService) Update(data back.CommentsTasks) (int64, back.Error) {
+	return service.repo.Update(data)
 }
 
-func(repo *CommentsTasksService) Get(filter back.CommentsTasksFilter, sort back.Sort) ([]back.CommentsTasks, back.Error) {
-	return repo.Get(filter, sort)
+func(service *CommentsTasksService) Get(filter back.CommentsTasksFilter, sort back.Sort) ([]back.CommentsTasks, back.Error) {
+	return service.repo.Get(filter, sort)
 }
 
-func(repo *CommentsTasksService) Delete(ids []int) back.Error {
-	return repo.Delete(ids)
+func(service *CommentsTasksService) Delete(ids []int) back.Error {
+	return service.repo.Delete(ids)
 }

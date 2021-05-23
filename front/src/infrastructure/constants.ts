@@ -25,5 +25,6 @@ export enum StatusesTask {
   reopen,
   cancel,
   correct,
+  check,
   finish
 }

@@ -86,7 +86,7 @@ func (repo *ProjectMySQL) GetProjects(ids []int, filter back.ProjectFilter, sort
 		}
 	}
 
-	if sort.Field != "" { query += sort.GetSortSQLString() }
+	if sort.Field != "" { query += " " + sort.GetSortSQLString() }
 	if pagination.Limit != 0 { query += " " + pagination.GetSQLRequest() }
 
 	error := repo.db.Select(&projects, query)

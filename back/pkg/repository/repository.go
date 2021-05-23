@@ -7,9 +7,9 @@ import (
 
 type Authorization interface {
 	CreateCompany(company back.Company) (int64, back.Error)
-	CreateUser(user back.User) (int64, back.Error)
+	CreateUser(user back.RequiredUser) (int64, back.Error)
 	GetCompany(login, password string) (back.Company, back.Error)
-	GetUser(login, password string, companyID int) (back.User, back.Error)
+	GetUser(login, password string, companyID int) (back.RequiredUser, back.Error)
 }
 
 type Company interface {
@@ -21,6 +21,7 @@ type Task interface {
 	UpdateTask(task back.Task) (int64, back.Error)
 	GetTasks(ids []int, filter back.TaskFilter, sort back.Sort, pagination back.Pagination) ([]back.Task, back.Error)
 	DeleteTasks(ids []int) back.Error
+	ChangeStatus(id int, status int) back.Error
 }
 
 type Project interface {
@@ -32,6 +33,7 @@ type Project interface {
 
 type User interface {
 	GetUsers(ids []int, filter back.UserFilter) ([]back.User, back.Error)
+	UpdateUser(user back.User) (int, back.Error)
 }
 
 type Times interface {

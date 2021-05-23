@@ -178,3 +178,27 @@ func (handler *Handler) deleteTasks(ctx *gin.Context) {
 
 	ctx.JSON(http.StatusOK, map[string][]int{ "ids": request.Ids })
 }
+
+type requestChangeStatusTask struct {
+	Id int `json:"id" binding:"required"`
+	Status int `json:"status"`
+}
+
+func (handler *Handler) changeStatusTask(ctx *gin.Context) {
+	var request requestChangeStatusTask
+
+	if error := ctx.BindJSON(&request); error != nil {
+		NewErrorResponse(ctx, http.StatusBadRequest, back.Error{
+			LOG_TASK_MSG + "changeStatusTask > binding JSON - " + error.Error(),
+			"Не корректный запрос",
+		})
+		return
+	}
+
+	if error := handler.services.Task.ChangeStatus(request.Id, request.Status); error.Log != "" {
+		NewErrorResponse(ctx, http.StatusBadRequest, error)
+		return
+	}
+
+	ctx.JSON(http.StatusOK, map[string]int{ "id": request.Id })
+}

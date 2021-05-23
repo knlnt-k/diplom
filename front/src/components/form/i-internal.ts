@@ -17,10 +17,11 @@ export interface IForm extends InitialForm {
 
 export interface IElementForm {
   isPrimitive?: boolean;
-  nameComponent: "Input" | "Selector" | "Textarea" | "Button" | "custom";
+  nameComponent: "Input" | "Selector" | "Textarea" | "Button" | "custom" | "";
   component?: any;
   initValue: any;
   vModel: any;
+  html?: string;
   vIf?: boolean;
   class?: string;
   props: Record<string, any>;

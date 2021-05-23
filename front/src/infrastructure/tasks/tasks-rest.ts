@@ -1,8 +1,10 @@
 import {
+  RequestChangeStatusTask,
   RequestCreateTask,
   RequestDeleteTask,
   RequestGetTasks,
   RequestUpdateTask,
+  ResponseChangeStatusTask,
   ResponseCreateTask,
   ResponseDeleteTask,
   ResponseGetTasks,
@@ -19,7 +21,12 @@ export default class TasksRest {
         answer: response.data || undefined,
         error: undefined
       }))
-      .catch((error: ErrorRequest) => ({ answer: undefined, error: (error && error.response && error.response.data) || { message: ERROR_MSG } }));
+      .catch((error: ErrorRequest) => ({
+        answer: undefined,
+        error: (error && error.response && error.response.data) || {
+          message: ERROR_MSG
+        }
+      }));
   }
 
   static getTasks(data: RequestGetTasks) {
@@ -28,7 +35,12 @@ export default class TasksRest {
         answer: response.data || undefined,
         error: undefined
       }))
-      .catch((error: ErrorRequest) => ({ answer: undefined, error: (error && error.response && error.response.data) || { message: ERROR_MSG } }));
+      .catch((error: ErrorRequest) => ({
+        answer: undefined,
+        error: (error && error.response && error.response.data) || {
+          message: ERROR_MSG
+        }
+      }));
   }
 
   static updateTask(data: RequestUpdateTask) {
@@ -37,7 +49,12 @@ export default class TasksRest {
         answer: response.data || undefined,
         error: undefined
       }))
-      .catch((error: ErrorRequest) => ({ answer: undefined, error: (error && error.response && error.response.data) || { message: ERROR_MSG } }));
+      .catch((error: ErrorRequest) => ({
+        answer: undefined,
+        error: (error && error.response && error.response.data) || {
+          message: ERROR_MSG
+        }
+      }));
   }
 
   static deleteTasks(data: RequestDeleteTask) {
@@ -46,6 +63,25 @@ export default class TasksRest {
         answer: response.data || undefined,
         error: undefined
       }))
-      .catch((error: ErrorRequest) => ({ answer: undefined, error: (error && error.response && error.response.data) || { message: ERROR_MSG } }));
+      .catch((error: ErrorRequest) => ({
+        answer: undefined,
+        error: (error && error.response && error.response.data) || {
+          message: ERROR_MSG
+        }
+      }));
+  }
+
+  static changeStatus(data: RequestChangeStatusTask) {
+    return query({ point: "api/change-status-task", method: "POST", data })
+      .then((response: ResponseChangeStatusTask) => ({
+        answer: response.data || undefined,
+        error: undefined
+      }))
+      .catch((error: ErrorRequest) => ({
+        answer: undefined,
+        error: (error && error.response && error.response.data) || {
+          message: ERROR_MSG
+        }
+      }));
   }
 }

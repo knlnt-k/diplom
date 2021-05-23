@@ -21,5 +21,5 @@ export const ASC_OBJECTS = [
 
 export interface ITimeObject {
   seconds: number;
-  getString(format: string): string;
+  getString(format?: string): string;
 }

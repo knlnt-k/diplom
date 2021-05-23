@@ -1,0 +1,24 @@
+.users__search {
+    margin-bottom: 40px;
+}
+
+.users__items .list__item:hover {
+    background-color: #ffffff;
+    cursor: default;
+}
+
+.users__user-item {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.users__user-item .selector-for-forms {
+    min-width: 200px;
+}
+
+.users__user-item .title2 {
+    margin-right: 10px;
+}

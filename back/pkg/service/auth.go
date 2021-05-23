@@ -40,7 +40,7 @@ func (service *AuthService) CreateCompany(company back.Company) (int64, back.Err
 	return service.repo.CreateCompany(company)
 }
 
-func (service *AuthService) CreateUser(user back.User) (int64, back.Error) {
+func (service *AuthService) CreateUser(user back.RequiredUser) (int64, back.Error) {
 	user.Password = generatePasswordHash(user.Password)
 
 	return service.repo.CreateUser(user)

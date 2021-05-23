@@ -4,7 +4,6 @@ export interface User {
   last_name?: string;
   login: string;
   company_id: number;
-  price?: number;
   profession?: number;
   access?: number;
 }
@@ -20,5 +19,11 @@ export interface RequestGetUsers {
 export interface ResponseGetUsers {
   data: {
     users: User[];
+  };
+}
+
+export interface ResponseUpdateUser {
+  data: {
+    id: number;
   };
 }

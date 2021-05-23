@@ -1,6 +1,11 @@
-import { reactive } from "vue";
+import { reactive, ref } from "vue";
+
 import form from "@/widgets/popup-create-task/form";
 import formTime from "./form-time";
+import formComments from "./form-comments";
+
+import { ITimes } from "@/infrastructure/times/i-internal";
+import { IComment } from "@/infrastructure/comments-tasks/i-internal";
 
 export default function() {
   const apiState = reactive({
@@ -9,6 +14,7 @@ export default function() {
   });
   const formInit = reactive(form);
   const formTimeInit = reactive(formTime);
+  const formCommentsInit = reactive(formComments);
   const setDisabledForms = (byForm: any) => {
     Object.defineProperty(byForm, "disabled", {
       get() {
@@ -16,13 +22,19 @@ export default function() {
       }
     });
   };
+  const windowWidth = ref(0);
 
   setDisabledForms(formInit);
   setDisabledForms(formTimeInit);
+  setDisabledForms(formCommentsInit);
 
   return {
     form: formInit,
     apiState,
-    formTime: formTimeInit
+    formTime: formTimeInit,
+    formComments: formCommentsInit,
+    times: ref([] as ITimes[]),
+    comments: ref([] as IComment[]),
+    windowWidth
   };
 }

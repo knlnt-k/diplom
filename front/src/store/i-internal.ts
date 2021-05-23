@@ -12,4 +12,5 @@ export interface IIsCan {
   editProject: boolean;
   deleteTask: boolean;
   editTask: boolean;
+  deleteComment(idUser: number): boolean;
 }

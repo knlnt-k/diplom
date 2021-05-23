@@ -41,3 +41,7 @@ func (service *TaskService) GetTasks(ids []int, filter back.TaskFilter, sort bac
 func (service *TaskService) DeleteTasks(ids []int) back.Error {
 	return service.repo.DeleteTasks(ids)
 }
+
+func (service *TaskService) ChangeStatus(id int, status int)  back.Error {
+	return service.repo.ChangeStatus(id, status)
+}

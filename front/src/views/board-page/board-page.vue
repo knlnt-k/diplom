@@ -1,6 +1,11 @@
 <template>
   <div class="board-page">
-    <Board />
+    <Board
+      :projects="projects"
+      :filter-task="filterTask"
+      :tasks="tasks"
+      @deleteTask="deleteTask"
+    />
   </div>
 </template>
 

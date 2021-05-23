@@ -1,6 +1,8 @@
 import { User } from "@/infrastructure/users/i-external";
 import { IUser } from "@/infrastructure/users/i-internal";
 import { Accesses, Profession } from "@/infrastructure/constants";
+import { getProfessionObject } from "@/infrastructure/services/get-profession-object";
+import { getAccessObject } from "@/infrastructure/services/get-access-object";
 
 export const UserToIUser: (user: User) => IUser = user => {
   return {
@@ -10,8 +12,7 @@ export const UserToIUser: (user: User) => IUser = user => {
     fullName: user.name + (user.last_name ? " " + user.last_name : ""),
     login: user.login,
     companyID: user.company_id,
-    price: user.price || 0,
-    profession: user.profession || Profession.none,
-    access: user.access || Accesses.user
+    profession: getProfessionObject(user.profession || Profession.none),
+    access: getAccessObject(user.access || Accesses.user)
   } as IUser;
 };

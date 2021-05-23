@@ -20,3 +20,7 @@ func NewUserService(repo repository.User) *UserService {
 func (service *UserService) GetUsers(ids []int, filter back.UserFilter) ([]back.User, back.Error) {
 	return service.repo.GetUsers(ids, filter)
 }
+
+func (service *UserService) UpdateUser(user back.User) (int, back.Error) {
+	return service.repo.UpdateUser(user)
+}

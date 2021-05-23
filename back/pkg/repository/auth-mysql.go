@@ -38,9 +38,11 @@ func (repo *AuthMySQL) CreateCompany(company back.Company) (int64, back.Error) {
 	return id, back.Error{}
 }
 
-func (repo *AuthMySQL) CreateUser(user back.User) (int64, back.Error) {
+func (repo *AuthMySQL) CreateUser(user back.RequiredUser) (int64, back.Error) {
 	query := fmt.Sprintf(
-		"INSERT INTO `%s` (`name`, `last_name`, `login`, `password`, `company_id`, `price`, `profession`, `access`) VALUES ('%s', '', '%s', '%s', %d, 0, 0, 0)",
+		"INSERT INTO `%s`" +
+			" (`name`, `last_name`, `login`, `password`, `company_id`, `profession`, `access`) " +
+			"VALUES ('%s', '', '%s', '%s', %d, 0, 0)",
 		USERS_TABLE_NAME, user.Name, user.Login, user.Password, user.CompanyID,
 	)
 	result, error := repo.db.Exec(query)
@@ -72,8 +74,8 @@ func (repo *AuthMySQL) GetCompany(login, password string) (back.Company, back.Er
 	return company, back.Error{}
 }
 
-func (repo *AuthMySQL) GetUser(login, password string, companyID int) (back.User, back.Error) {
-	var user back.User
+func (repo *AuthMySQL) GetUser(login, password string, companyID int) (back.RequiredUser, back.Error) {
+	var user back.RequiredUser
 	query := fmt.Sprintf(
 		"SELECT * FROM `%s` WHERE `login`='%s' AND `password`='%s' AND `company_id`=%d",
 		USERS_TABLE_NAME, login, password, companyID,

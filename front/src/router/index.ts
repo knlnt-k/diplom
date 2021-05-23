@@ -37,12 +37,24 @@ const router = createRouter({
   routes
 });
 
-router.beforeEach((from, to, next) => {
+router.beforeEach(async (from, to, next) => {
   if (from.name !== ROUTES.home.name) {
     if (Infrastructure.auth.isAuth() && TOKEN) {
       const route = Object.values(ROUTES).find(
         route => route.name === from.name
       );
+
+      if (!TOKEN.isCompany) {
+        const response = await Infrastructure.users.getUsers({
+          ids: [TOKEN.id],
+          filter: { companyIDs: [TOKEN.company_id] }
+        });
+
+        if (response.answer && response.answer.users && TOKEN) {
+          TOKEN.name = response.answer.users[0].name;
+        }
+      }
+
       store.commit("setCurrentAccount", {
         id: TOKEN.id,
         isCompany: TOKEN.isCompany,

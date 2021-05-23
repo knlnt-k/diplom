@@ -22,7 +22,7 @@ func NewCommentsTasksMySQL(db *sqlx.DB) *CommentsTasksMySQL {
 
 func (repo *CommentsTasksMySQL) Set(data back.CommentsTasks) (int64, back.Error) {
 	query := fmt.Sprintf(
-		"INSERT INTO `%s`, `task_id`, `user_id`, `comment`, `created`) VALUES (%d, %d, %s, %d)",
+		"INSERT INTO `%s` (`task_id`, `user_id`, `comment`, `created`) VALUES (%d, %d, '%s', %d)",
 		COMMENTS_TASKS_TABLE_NAME,
 		data.TaskID, data.UserID, data.Comment, time.Now().Unix(),
 	)
@@ -41,7 +41,7 @@ func (repo *CommentsTasksMySQL) Set(data back.CommentsTasks) (int64, back.Error)
 }
 
 func (repo *CommentsTasksMySQL) Update(data back.CommentsTasks) (int64, back.Error) {
-	query := fmt.Sprintf("UPDATE `%s` SET `comment` = %d WHERE `id` = %d", COMMENTS_TASKS_TABLE_NAME, data.Comment, data.Id)
+	query := fmt.Sprintf("UPDATE `%s` SET `comment` = '%s' WHERE `id` = %d", COMMENTS_TASKS_TABLE_NAME, data.Comment, data.Id)
 	result, error := repo.db.Exec(query)
 
 	if error != nil || result == nil {
@@ -55,9 +55,11 @@ func (repo *CommentsTasksMySQL) Get(filter back.CommentsTasksFilter, sort back.S
 	var results []back.CommentsTasks
 	isExistFilter := len(filter.UserIDs) != 0 || len(filter.TaskIDs) != 0
 	isAnd := false
-	query := fmt.Sprintf("SELECT * FROM '%s'", COMMENTS_TASKS_TABLE_NAME)
+	query := fmt.Sprintf("SELECT * FROM `%s`", COMMENTS_TASKS_TABLE_NAME)
 
 	if isExistFilter {
+		query += " WHERE "
+
 		if len(filter.UserIDs) != 0 {
 			query += repo.common.GetInSQLString(filter.UserIDs, "user_id")
 			isAnd = true

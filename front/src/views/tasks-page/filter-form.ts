@@ -23,14 +23,15 @@ export default CreateForm({
     },
     priorities: {
       nameComponent: "Selector",
-      initValue: [Priorities.normal],
-      vModel: [Priorities.normal],
+      initValue: [],
+      vModel: [],
       props: {
         options: getObjectFromEnum(Priorities, getPriorityObject),
         className: "selector-for-forms",
         textField: "text",
         valueField: "priority",
         multiple: true,
+        isNotClear: true,
         label: "Приоритет"
       },
       methods: {},
@@ -70,6 +71,7 @@ export default CreateForm({
         textField: "fullName",
         valueField: "id",
         multiple: true,
+        isNotClear: true,
         label: "Пользователь"
       },
       methods: {}
@@ -85,14 +87,15 @@ export default CreateForm({
         textField: "name",
         valueField: "id",
         multiple: true,
+        isNotClear: true,
         label: "Проект"
       },
       methods: {}
     },
     statuses: {
       nameComponent: "Selector",
-      initValue: [StatusesTask.canDo],
-      vModel: [StatusesTask.canDo],
+      initValue: [],
+      vModel: [],
       vIf: true,
       props: {
         className: "selector-for-forms",
@@ -100,6 +103,7 @@ export default CreateForm({
         textField: "text",
         valueField: "id",
         multiple: true,
+        isNotClear: true,
         label: "Статус"
       },
       methods: {}
@@ -114,6 +118,7 @@ export default CreateForm({
         options: taskSortFields,
         textField: "text",
         valueField: "field",
+        isNotClear: true,
         label: "Сортировать по"
       },
       methods: {}
@@ -128,6 +133,7 @@ export default CreateForm({
         options: ASC_OBJECTS,
         textField: "text",
         valueField: "value",
+        isNotClear: true,
         label: "Упорядоченность"
       },
       methods: {}

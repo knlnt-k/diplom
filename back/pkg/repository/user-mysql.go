@@ -25,7 +25,7 @@ func (repo *UserMySQL) GetUsers(ids []int, filter back.UserFilter) ([]back.User,
 
 	isExistFilter := filter.Login != "" || len(filter.CompanyIDs) != 0
 
-	query := fmt.Sprintf("SELECT * FROM `%s`", USERS_TABLE_NAME)
+	query := fmt.Sprintf("SELECT `id`, `name`, `last_name`, `login`, `company_id`, `profession`, `access` FROM `%s`", USERS_TABLE_NAME)
 
 	if len(ids) != 0 || isExistFilter { query += " WHERE " }
 	if len(ids) != 0 {
@@ -53,4 +53,23 @@ func (repo *UserMySQL) GetUsers(ids []int, filter back.UserFilter) ([]back.User,
 	}
 
 	return users, back.Error{}
+}
+
+func (repo *UserMySQL) UpdateUser(user back.User) (int, back.Error) {
+	query := fmt.Sprintf(
+		"UPDATE `%s` SET `name`='%s', `last_name`='%s', `profession`=%d, `access`=%d",
+		USERS_TABLE_NAME,
+		user.Name, user.LastName, user.Profession, user.Access,
+	)
+
+	result, error := repo.db.Exec(query)
+
+	if error != nil || result == nil {
+		return 0, back.Error{
+			LOG_MSG_USER + "UpdateUser > repo.db.Exec - " + error.Error(),
+			"При редактировании профиля произошла ошибка",
+		}
+	}
+
+	return int(user.Id), back.Error{}
 }

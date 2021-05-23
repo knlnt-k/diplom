@@ -18,17 +18,24 @@ import {
   RequestUpdateProject
 } from "@/infrastructure/projects/i-external";
 import {
+  RequestChangeStatusTask,
   RequestCreateTask,
   RequestDeleteTask,
   RequestGetTasks,
   RequestUpdateTask
 } from "@/infrastructure/tasks/i-external";
-import { RequestGetUsers } from "@/infrastructure/users/i-external";
+import { RequestGetUsers, User } from "@/infrastructure/users/i-external";
 import {
   RequestGetTimes,
   RequestSetTime,
   RequestUpdateTime
 } from "@/infrastructure/times/i-external";
+import {
+  RequestDeleteComments,
+  RequestGetComments,
+  RequestSetComment,
+  RequestUpdateComment
+} from "@/infrastructure/comments-tasks/i-external";
 
 export default class Infrastructure {
   static auth = {
@@ -118,6 +125,11 @@ export default class Infrastructure {
       return import("@/infrastructure/tasks/tasks-rest").then(module =>
         module.default.deleteTasks(request)
       );
+    },
+    changeStatus(request: RequestChangeStatusTask) {
+      return import("@/infrastructure/tasks/tasks-rest").then(module =>
+        module.default.changeStatus(request)
+      );
     }
   };
 
@@ -125,6 +137,11 @@ export default class Infrastructure {
     getUsers(request: RequestGetUsers) {
       return import("@/infrastructure/users/users-rest").then(module =>
         module.default.getUsers(request)
+      );
+    },
+    updateUser(request: User) {
+      return import("@/infrastructure/users/users-rest").then(module =>
+        module.default.updateUser(request)
       );
     }
   };
@@ -144,6 +161,29 @@ export default class Infrastructure {
       return import("@/infrastructure/times/times-rest").then(module =>
         module.default.updateTime(request)
       );
+    }
+  };
+
+  static comments = {
+    get(request: RequestGetComments) {
+      return import(
+        "@/infrastructure/comments-tasks/comments-tasks-rest"
+      ).then(module => module.default.get(request));
+    },
+    set(request: RequestSetComment) {
+      return import(
+        "@/infrastructure/comments-tasks/comments-tasks-rest"
+      ).then(module => module.default.set(request));
+    },
+    update(request: RequestUpdateComment) {
+      return import(
+        "@/infrastructure/comments-tasks/comments-tasks-rest"
+      ).then(module => module.default.update(request));
+    },
+    delete(request: RequestDeleteComments) {
+      return import(
+        "@/infrastructure/comments-tasks/comments-tasks-rest"
+      ).then(module => module.default.delete(request));
     }
   };
 }

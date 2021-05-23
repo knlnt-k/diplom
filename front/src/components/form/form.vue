@@ -8,15 +8,19 @@
   >
     <template v-for="(row, indexRow) in form.schema" :key="indexRow">
       <div v-if="getCountElementsInRow(row)" class="form__row">
-        <template v-for="(elementKey, indexElement) in row">
+        <template v-for="(elementKey, indexElement) in row" :key="indexElement">
           <div
-            v-if="
+            v-if="form.elements[elementKey].html"
+            v-html="form.elements[elementKey].html"
+            :style="getWidthCell(row)"
+          ></div>
+          <div
+            v-else-if="
               !('vIf' in form.elements[elementKey]) ||
                 form.elements[elementKey].vIf
             "
             class="form__cell"
             :class="form.elements[elementKey].class || ''"
-            :key="indexElement"
             :style="getWidthCell(row)"
           >
             <template v-if="form.elements[elementKey].isPrimitive">

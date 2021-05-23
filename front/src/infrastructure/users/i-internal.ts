@@ -1,3 +1,6 @@
+import { IAccessObject } from "@/infrastructure/services/get-access-object";
+import { IProfessionObject } from "@/infrastructure/services/get-profession-object";
+
 export interface IUser {
   id: number;
   name: string;
@@ -5,7 +8,6 @@ export interface IUser {
   fullName: string;
   login: string;
   companyID: number;
-  price: number;
-  profession: number;
-  access: number;
+  profession: IProfessionObject;
+  access: IAccessObject;
 }

@@ -1,6 +1,7 @@
 import { createStore } from "vuex";
 import { ICurrentAccount, IIsCan } from "@/store/i-internal";
 import { Accesses } from "@/infrastructure/constants";
+import { ID_ADMIN_USER } from "@/constants";
 
 export default createStore({
   state: {
@@ -30,7 +31,12 @@ export default createStore({
         deleteProject: admin,
         editProject: admin,
         deleteTask: pmAndAdmin,
-        editTask: pmAndAdmin
+        editTask: pmAndAdmin,
+        deleteComment(idUser) {
+          return (
+            idUser === state.currentAccount.id || state.currentAccount.isCompany
+          );
+        }
       };
     }
   }

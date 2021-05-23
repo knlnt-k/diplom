@@ -146,3 +146,18 @@ func (repo *TaskMySQL) DeleteTasks(ids []int) back.Error {
 
 	return back.Error{}
 }
+
+func (repo *TaskMySQL) ChangeStatus(id int, status int) back.Error {
+	query := fmt.Sprintf("UPDATE `%s` SET `status`=%d WHERE `id`=%d", TASKS_TABLE_NAME, status, id)
+
+	result, error := repo.db.Exec(query)
+
+	if error != nil || result == nil {
+		return back.Error{
+			LOG_MSG_TASK + "ChangeStatus > repo.db.Exec - " + error.Error(),
+			"При смене статуса произошла ошибка",
+		}
+	}
+
+	return back.Error{}
+}

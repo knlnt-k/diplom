@@ -1,6 +1,8 @@
 import {
   RequestGetUsers,
-  ResponseGetUsers
+  ResponseGetUsers,
+  ResponseUpdateUser,
+  User
 } from "@/infrastructure/users/i-external";
 import { query } from "@/infrastructure/config/query";
 import { ErrorRequest } from "@/infrastructure/i-external";
@@ -13,6 +15,25 @@ export default class UsersRest {
         answer: response.data,
         error: undefined
       }))
-      .catch((error: ErrorRequest) => ({ answer: undefined, error: (error && error.response && error.response.data) || { message: ERROR_MSG } }));
+      .catch((error: ErrorRequest) => ({
+        answer: undefined,
+        error: (error && error.response && error.response.data) || {
+          message: ERROR_MSG
+        }
+      }));
+  }
+
+  static updateUser(data: User) {
+    return query({ point: "api/update-user", method: "PUT", data })
+      .then((response: ResponseUpdateUser) => ({
+        answer: response.data,
+        error: undefined
+      }))
+      .catch((error: ErrorRequest) => ({
+        answer: undefined,
+        error: (error && error.response && error.response.data) || {
+          message: ERROR_MSG
+        }
+      }));
   }
 }

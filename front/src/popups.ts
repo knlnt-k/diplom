@@ -8,7 +8,14 @@ export default {
     newTask: {
       visible: false,
       payload: {
-        task: null as ITask | null
+        task: null as ITask | null,
+        thenForEditTask: undefined
+      }
+    },
+    updateUser: {
+      visible: false,
+      payload: {
+        id: 0
       }
     }
   },
@@ -32,6 +39,7 @@ export interface IPopups {
     [key: string]: IPopupListItem;
     newTask: IPopupListItem;
     newProject: IPopupListItem;
+    updateUser: IPopupListItem;
   };
-  toggleVisible(name: "newTask" | "newProject"): void;
+  toggleVisible(name: "newTask" | "newProject" | "updateUser"): void;
 }

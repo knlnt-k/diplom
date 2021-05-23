@@ -5,10 +5,13 @@ import { IPagination } from "@/infrastructure/i-internal";
 export default defineComponent({
   name: "List",
   props: {
-    rows: Array,
+    rows: {
+      type:Array,
+      required: true
+    },
     pagination: {
       type: Object as PropType<IPagination>,
-      required: true
+      required: false
     }
   },
   data() {
@@ -18,13 +21,13 @@ export default defineComponent({
   },
   computed: {
     visiblePagination(): boolean {
-      return this.pagination.total > this.pagination.limit;
+      return this.pagination ? this.pagination.total > this.pagination.limit : false;
     },
     currentPage(): number {
-      return Math.ceil(this.pagination.offset / this.pagination.limit) + 1;
+      return this.pagination ? Math.ceil(this.pagination.offset / this.pagination.limit) + 1 : 0;
     },
     countPages(): number {
-      return Math.ceil(this.pagination.total / this.pagination.limit);
+      return this.pagination ? Math.ceil(this.pagination.total / this.pagination.limit) : 0;
     },
     pages(): Array<string | number> | number {
       if (this.countPages > 7) {

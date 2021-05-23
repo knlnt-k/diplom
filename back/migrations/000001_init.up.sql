@@ -14,10 +14,8 @@ CREATE TABLE users
     login varchar(255) not null,
     password varchar(255) not null,
     company_id int(20) not null,
-    price int(5),
     profession int(1),
-    access int(1),
-    date_change_price int(12)
+    access int(1)
 );
 
 CREATE TABLE tasks

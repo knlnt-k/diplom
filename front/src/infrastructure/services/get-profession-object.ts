@@ -1,4 +1,4 @@
-import { Profession } from "@/infrastructure/i-internal";
+import { Profession } from "@/infrastructure/constants";
 
 export const getProfessionObject: (
   profession: number

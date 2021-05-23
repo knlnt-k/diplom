@@ -20,7 +20,7 @@ type requestSignInCompany struct {
 }
 
 type requestSignUpUser struct {
-	back.User
+	back.RequiredUser
 }
 
 type requestSignInUser struct {
@@ -122,7 +122,7 @@ func (handler *Handler) signUpUser(ctx *gin.Context) {
 		return
 	}
 
-	id, err := handler.services.Authorization.CreateUser(request.User)
+	id, err := handler.services.Authorization.CreateUser(request.RequiredUser)
 	if err.Log != "" {
 		NewErrorResponse(ctx, http.StatusInternalServerError, err)
 		return

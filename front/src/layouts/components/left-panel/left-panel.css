@@ -46,7 +46,6 @@
     .left-panel {
         width: 400px;
         top: 70px;
-        left: 0;
         height: calc(100vh - 70px);
     }
 }

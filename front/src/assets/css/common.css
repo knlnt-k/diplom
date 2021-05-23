@@ -43,6 +43,12 @@ input[type="checkbox"] {
     overflow: hidden;
 }
 
+.title2,
+.title3,
+.text_small {
+    word-break: break-word;
+}
+
 .title2 {
     font-size: 20px;
 }
@@ -53,4 +59,56 @@ input[type="checkbox"] {
 
 .text_small {
     font-size: 14px;
+}
+
+.label-mark {
+    font-size: 12px;
+    color: #9e9e9e;
+    cursor: default;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    margin: 0 10px 10px 0;
+}
+
+.label-mark__button {
+    text-decoration: underline;
+    color: #304ffe;
+    cursor: pointer;
+}
+
+.label-mark__button:hover {
+    text-decoration: none;
+}
+
+.label-mark__mark {
+    display: block;
+    margin-right: 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+}
+
+.info-message {
+    background-color: #0091ea;
+    border-radius: 7px;
+    padding: 15px;
+    color: #ffffff;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+
+.info-message::before {
+    content: "i";
+    font-family: "Times New Roman", serif;
+    font-style: italic;
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: bold;
+    margin-right: 20px;
 }

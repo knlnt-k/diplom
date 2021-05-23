@@ -7,6 +7,7 @@ export const getStatusObject: (status: number) => IStatusObject = status => {
   if (status === StatusesTask.reopen) statusObject.text = "Переоткрыта";
   if (status === StatusesTask.cancel) statusObject.text = "Отменена";
   if (status === StatusesTask.correct) statusObject.text = "На уточнение";
+  if (status === StatusesTask.check) statusObject.text = "На проверке";
   if (status === StatusesTask.finish) statusObject.text = "Завершена";
 
   return statusObject;

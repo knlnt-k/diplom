@@ -1,6 +1,10 @@
 export default {
   isLoad: false,
-  toggle() {
-    this.isLoad = !this.isLoad;
+  toggle(isLoad?: boolean) {
+    if (isLoad !== undefined) {
+      this.isLoad = isLoad;
+    } else {
+      this.isLoad = !this.isLoad;
+    }
   }
 };

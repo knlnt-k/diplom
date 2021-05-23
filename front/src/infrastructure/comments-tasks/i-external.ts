@@ -10,7 +10,9 @@ export interface CommentsTasks {
 
 export type RequestSetComment = CommentsTasks;
 export interface ResponseSetComment {
-  id: number;
+  data: {
+    id: number;
+  };
 }
 
 export type RequestUpdateComment = CommentsTasks;
@@ -24,10 +26,16 @@ export interface RequestGetComments {
   sort?: Sort;
 }
 export interface ResponseGetComments {
-  comments: CommentsTasks[];
+  data: {
+    comments: CommentsTasks[];
+  };
 }
 
 export interface RequestDeleteComments {
   ids: number[];
 }
-export type ResponseDeleteComments = RequestDeleteComments;
+export interface ResponseDeleteComments {
+  data: {
+    ids: number[];
+  };
+}

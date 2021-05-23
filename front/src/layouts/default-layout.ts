@@ -3,14 +3,16 @@ import { defineComponent } from "vue";
 import Header from "./components/header/header.vue";
 import LeftPanel from "./components/left-panel/left-panel.vue";
 import PopupCreateTask from "@/widgets/popup-create-task/popup-create-task.vue";
+import PopupUpdateUser from "@/widgets/popup-update-user/popup-update-user.vue";
 
-import { ICurrentAccount, IIsCan } from "@/store/i-internal";
+import { ICurrentAccount } from "@/store/i-internal";
 
 export default defineComponent({
   components: {
     Header,
     LeftPanel,
-    PopupCreateTask
+    PopupCreateTask,
+    PopupUpdateUser
   },
   name: "DefaultLayout",
   data() {

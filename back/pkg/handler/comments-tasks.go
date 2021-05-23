@@ -24,13 +24,15 @@ func(handler *Handler) setComment(ctx *gin.Context) {
 		return
 	}
 
-	users, error := handler.services.User.GetUsers([]int{request.UserID}, back.UserFilter{})
-	if error.Log != "" || len(users) == 0 {
-		NewErrorResponse(ctx, http.StatusBadRequest, back.Error{
-			LOG_COMMENTS_TASKS_MSG + "setComment > handler.services.User.GetUsers + " + error.Log,
-			"Пользователь не найден",
-		})
-		return
+	if request.UserID != back.ID_ADMIN_USER {
+		users, error := handler.services.User.GetUsers([]int{request.UserID}, back.UserFilter{})
+		if error.Log != "" || len(users) == 0 {
+			NewErrorResponse(ctx, http.StatusBadRequest, back.Error{
+				LOG_COMMENTS_TASKS_MSG + "setComment > handler.services.User.GetUsers + " + error.Log,
+				"Пользователь не найден",
+			})
+			return
+		}
 	}
 
 	tasks, error := handler.services.Task.GetTasks([]int{request.TaskID}, back.TaskFilter{}, back.Sort{}, back.Pagination{})

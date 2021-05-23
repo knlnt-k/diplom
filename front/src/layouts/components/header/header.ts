@@ -28,6 +28,12 @@ export default defineComponent({
       if (!this.isMouseEnterOnUserMenu) {
         this.isShowUserMenu = false;
       }
+    },
+    handleClickUserMenuSettings() {
+      if (!this.currentAccount.isCompany) {
+        this.$popups.list["updateUser"].payload.id = this.currentAccount.id;
+        this.$popups.toggleVisible("updateUser");
+      }
     }
   }
 });

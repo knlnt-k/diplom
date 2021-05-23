@@ -145,13 +145,14 @@ export default defineComponent({
         .then(response => {
           const { answer } = response;
 
-          this.formFilter.elements.projectIDs.props.options = answer
-            ? answer.projects.map(p => projectToInternal(p))
-            : [];
+          this.formFilter.elements.projectIDs.props.options =
+            answer && answer.projects
+              ? answer.projects.map(p => projectToInternal(p))
+              : [];
         });
     },
     deleteTasks(id: number) {
-      if(this.isCan.deleteTask) {
+      if (this.isCan.deleteTask) {
         this.$loader.toggle();
 
         this.$infra.tasks.deleteTasks({ ids: [id] }).then(response => {
@@ -167,9 +168,8 @@ export default defineComponent({
 
           this.getTasks();
         });
-      }
-      else {
-        this.$toaster.alert("Нет доступа")
+      } else {
+        this.$toaster.alert("Нет доступа");
       }
     }
   },

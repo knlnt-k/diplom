@@ -1,0 +1,129 @@
+.board__wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    max-width: 500px;
+    margin: 70px auto 20px auto;
+}
+
+.board__row {
+    width: 100%;
+    flex: 0 0 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-bottom: 30px;
+}
+
+.board__row-head {
+    display: none;
+}
+
+.board__cell {
+    flex: 0 1 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.board__first_cell {
+    border: none;
+}
+
+.board__head-first_cell {
+    margin-bottom: 10px;
+    border-radius: 7px;
+}
+
+.board__toggle-show-cells {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border-radius: 7px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.board__head-toggle-show-cells {
+    margin-bottom: 0;
+}
+
+.board__task {
+    border-radius: 7px;
+    width: 100%;
+    padding: 10px;
+    background-color: #eeeeee;
+    margin-bottom: 10px;
+    word-break: break-word;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+
+
+@media screen and (min-width: 1024px) {
+    .board__wrapper {
+        padding: 0 10px;
+        max-width: 100vw;
+    }
+
+    .board__row {
+        flex-wrap: nowrap;
+        align-items: stretch;
+    }
+
+    .board__row-head {
+        display: flex;
+        position: sticky;
+        top: 0;
+    }
+
+    .board__cell {
+        display: flex !important;
+        min-height: 200px;
+        padding: 10px;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+
+    .board__first_cell {
+        width: 10px;
+        flex: 1 0 10px;
+    }
+
+    .board__head-cell {
+        background-color: #ffffff;
+        min-height: 0;
+        font-weight: bold;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .board__toggle-show-cells {
+        display: none;
+    }
+
+    .board__task {
+        display: flex !important;
+        cursor: pointer;
+        transition: background-color 0.5s;
+    }
+
+    .board__task:hover {
+        background-color: #e0e0e0;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .board__wrapper {
+        width: 100vw;
+        margin-left: calc(-1 * ((100vw - 1400px + 48px) / 2));
+    }
+}

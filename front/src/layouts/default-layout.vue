@@ -1,6 +1,5 @@
 <template>
   <div class="default-layout">
-    <PopupCreateTask v-if="currentAccount.isAuth" />
     <ul class="toaster" v-if="$toaster.messages.length">
       <li
         class="toaster__item"
@@ -12,6 +11,8 @@
       </li>
     </ul>
     <template v-if="currentAccount.isAuth">
+      <PopupCreateTask v-if="$popups.list['newTask']" />
+      <PopupUpdateUser v-if="$popups.list['updateUser']" />
       <Header @exit="exit" />
       <LeftPanel />
       <div class="container" :class="{ loader: $loader.isLoad }">

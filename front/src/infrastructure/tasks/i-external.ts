@@ -50,3 +50,14 @@ export interface ResponseDeleteTask {
     ids: number[];
   };
 }
+
+export interface RequestChangeStatusTask {
+  id: number;
+  status: number;
+}
+
+export interface ResponseChangeStatusTask {
+  data: {
+    id: number;
+  };
+}

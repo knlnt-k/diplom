@@ -42,6 +42,7 @@ export default CreateForm({
         options: [] as IUser[],
         textField: "fullName",
         valueField: "id",
+        isNotClear: true,
         className: "selector-for-forms",
         label: "Исполнитель"
       },
@@ -55,6 +56,7 @@ export default CreateForm({
         options: getObjectFromEnum(Priorities, getPriorityObject),
         className: "selector-for-forms",
         textField: "text",
+        isNotClear: true,
         valueField: "priority",
         label: "Приоритет"
       },
@@ -79,6 +81,7 @@ export default CreateForm({
         textField: "name",
         valueField: "id",
         label: "Проект",
+        isNotClear: true,
         className: "selector-for-forms",
         isRequired: true
       },
@@ -99,6 +102,7 @@ export default CreateForm({
         options: getObjectFromEnum(StatusesTask, getStatusObject),
         textField: "text",
         valueField: "id",
+        isNotClear: true,
         className: "selector-for-forms",
         label: "Статус"
       },

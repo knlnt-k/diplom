@@ -1,6 +1,5 @@
 <template>
   <header class="header">
-    <div class="logo">Tracker</div>
     <button
       class="header__toggle-left-panel"
       aria-label="Открыть левую панель"
@@ -8,6 +7,7 @@
     >
       <span></span>
     </button>
+    <div class="logo">Tracker</div>
     <div
       class="header__user-menu-wrapper"
       @click="isShowUserMenu = !isShowUserMenu"
@@ -25,7 +25,13 @@
       </div>
       <transition name="fade">
         <ul class="header__user-menu" v-if="isShowUserMenu">
-          <li class="header__user-menu-item">Настройки</li>
+          <li
+            class="header__user-menu-item"
+            v-if="!currentAccount.isCompany"
+            @click="handleClickUserMenuSettings"
+          >
+            Настройки
+          </li>
           <li class="header__user-menu-item" @click="$emit('exit')">Выход</li>
         </ul>
       </transition>

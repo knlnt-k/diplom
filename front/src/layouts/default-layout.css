@@ -44,7 +44,7 @@
     margin-left: auto;
     margin-right: auto;
     height: calc(100vh - 50px);
-    overflow: auto;
+    transition: margin-left 0.5s, width 0.5s;
 }
 
 .container__blocked {
@@ -68,9 +68,9 @@
     }
 
     .container {
-        width: calc(100vw - 400px);
-        margin-left: 400px;
+        max-width: 1400px;
         height: calc(100vh - 70px);
+        margin-left: auto;
     }
 
     .container-scroll {

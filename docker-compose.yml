@@ -12,27 +12,46 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - ./back/db:/var/lib/mysql
-    networks:
-      diplom-network:
-        aliases:
-          - database
+      - ./db:/var/lib/mysql
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: pma
     links:
       - db
-    networks:
-      - diplom-network
     environment:
-      PMA_HOST: "database"
+      PMA_HOST: db
       PMA_PORT: 3306
       PMA_ARBITRARY: 1
     restart: always
     ports:
-      - 8081:80
-volumes:
-  dbdata:
-  migrations:
-networks:
-  diplom-network:
+      - 8082:80
+  back:
+    container_name: back
+    links:
+      - db
+    build:
+      context: ./back
+      dockerfile: ./Dockerfile
+    depends_on:
+      - db
+    ports:
+    - 8081:8081
+    volumes:
+    - ./back:/back
+  front:
+    container_name: front
+    build:
+      context: ./front
+      dockerfile: ./Dockerfile
+    ports:
+      - 8080:8080
+  proxy_server:
+    image: nginx:latest
+    container_name: proxy_server
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - 80:80
+    depends_on:
+      - back
+      - front

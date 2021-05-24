@@ -2,6 +2,7 @@ package handler
 
 import (
 	"diplom/back"
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
@@ -22,6 +23,8 @@ type requestGetCompanies struct {
 
 func (handler *Handler) GetCompanies(ctx *gin.Context) {
 	var request requestGetCompanies
+
+	fmt.Println("HEYYYYYY")
 
 	if error := ctx.BindJSON(&request); error != nil {
 		NewErrorResponse(

@@ -2,20 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="673d201f-ea84-4ee7-a8e9-3ae6aafeddfc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/front/src/views/home-page/home-page.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/.eslintrc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/babel.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/babel.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/front/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/assets/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/components/HelloWorld.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/router/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/shims-vue.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/shims-vue.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/views/About.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/views/Home.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/front/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/pkg/handler/company.go" beforeDir="false" afterPath="$PROJECT_DIR$/back/pkg/handler/company.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,8 +19,12 @@
       </list>
     </option>
   </component>
+  <component name="GOROOT" url="file:///usr/local/go" />
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/front" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="false" />
   </component>
   <component name="ProjectId" id="1rCppuyOARbePow3Fe8NDy6p458" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -42,13 +36,25 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="go.sdk.automatically.set" value="true" />
+    <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/front" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/front" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/front" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

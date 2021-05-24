@@ -1,5 +1,5 @@
 const proxy = {
-  target: "http://localhost:8083/",
+  target: "http://localhost:8081/",
   ws: true,
   changeOrigin: true
 };

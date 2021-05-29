@@ -3,6 +3,7 @@ package service
 import (
 	"diplom/back"
 	"diplom/back/pkg/repository"
+	"time"
 )
 
 const (
@@ -30,7 +31,27 @@ func (service *TaskService) CreateTask(task back.Task) (int64, back.Error) {
 	return service.repo.CreateTask(task)
 }
 
+func (service *TaskService) changeClosedTimeForTask(id int64, status int) (int, back.Error) {
+	var closed int64;
+	existTask, err := service.repo.GetTasks([]int{int(id)}, back.TaskFilter{}, back.Sort{}, back.Pagination{})
+
+	closed = int64(existTask[0].Closed)
+
+	if err.Log != "" || existTask == nil { return 0, err }
+	if existTask[0].Status != status && status == back.STATUSES["finish"] { closed = time.Now().Unix() }
+	if existTask[0].Status != back.STATUSES["finish"] && existTask[0].Closed != 0 { closed = 0 }
+
+	return int(closed), back.Error{}
+}
+
 func (service *TaskService) UpdateTask(task back.Task) (int64, back.Error) {
+
+	closed, error := service.changeClosedTimeForTask(task.Id, task.Status)
+
+	if error.Log != "" { return 0, error }
+
+	task.Closed = closed
+
 	return service.repo.UpdateTask(task)
 }
 
@@ -43,5 +64,10 @@ func (service *TaskService) DeleteTasks(ids []int) back.Error {
 }
 
 func (service *TaskService) ChangeStatus(id int, status int)  back.Error {
-	return service.repo.ChangeStatus(id, status)
+
+	closed, error := service.changeClosedTimeForTask(int64(id), status)
+
+	if error.Log != "" { return error }
+
+	return service.repo.ChangeStatus(id, status, closed)
 }

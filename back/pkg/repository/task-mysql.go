@@ -22,7 +22,7 @@ func NewTaskMySQL (db *sqlx.DB) *TaskMySQL {
 
 func (repo *TaskMySQL) CreateTask(task back.Task) (int64, back.Error) {
 	query := fmt.Sprintf(
-		"INSERT INTO `%s` (`name`, `description`, `user_id`, `priority`, `project_id`, `status`, `created`, `company_id`) VALUES ('%s', '%s', %d, %d, %d, %d, %d, %d)",
+		"INSERT INTO `%s` (`name`, `description`, `user_id`, `priority`, `project_id`, `status`, `created`, `company_id`, `closed`) VALUES ('%s', '%s', %d, %d, %d, %d, %d, %d, 0)",
 		TASKS_TABLE_NAME,
 		task.Name, task.Description, task.UserID, task.Priority, task.ProjectID, task.Status, time.Now().Unix(), task.CompanyID,
 	)
@@ -49,9 +49,9 @@ func (repo *TaskMySQL) CreateTask(task back.Task) (int64, back.Error) {
 
 func (repo *TaskMySQL) UpdateTask(task back.Task) (int64, back.Error) {
 	query := fmt.Sprintf(
-		"UPDATE `%s` SET `name` = '%s', `description` = '%s', `user_id` = %d, `priority` = %d, `status` = %d WHERE `id` = %d",
-		TASKS_TABLE_NAME,
-		task.Name, task.Description, task.UserID, task.Priority, task.Status, task.Id,
+	"UPDATE `%s` SET `name` = '%s', `description` = '%s', `user_id` = %d, `priority` = %d, `status` = %d, `closed` = %d WHERE `id` = %d",
+	TASKS_TABLE_NAME,
+	task.Name, task.Description, task.UserID, task.Priority, task.Status, task.Closed, task.Id,
 	)
 	result, error := repo.db.Exec(query)
 
@@ -147,8 +147,8 @@ func (repo *TaskMySQL) DeleteTasks(ids []int) back.Error {
 	return back.Error{}
 }
 
-func (repo *TaskMySQL) ChangeStatus(id int, status int) back.Error {
-	query := fmt.Sprintf("UPDATE `%s` SET `status`=%d WHERE `id`=%d", TASKS_TABLE_NAME, status, id)
+func (repo *TaskMySQL) ChangeStatus(id int, status int, closed int) back.Error {
+	query := fmt.Sprintf("UPDATE `%s` SET `status`=%d, `closed`=%d WHERE `id`=%d", TASKS_TABLE_NAME, status, closed, id)
 
 	result, error := repo.db.Exec(query)
 

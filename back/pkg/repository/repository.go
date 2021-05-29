@@ -21,7 +21,7 @@ type Task interface {
 	UpdateTask(task back.Task) (int64, back.Error)
 	GetTasks(ids []int, filter back.TaskFilter, sort back.Sort, pagination back.Pagination) ([]back.Task, back.Error)
 	DeleteTasks(ids []int) back.Error
-	ChangeStatus(id int, status int) back.Error
+	ChangeStatus(id int, status int, closed int) back.Error
 }
 
 type Project interface {

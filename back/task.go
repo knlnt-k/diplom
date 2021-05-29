@@ -1,5 +1,15 @@
 package back
 
+var STATUSES = map[string]int{
+	"canDo": 0,
+	"develop": 1,
+	"reopen": 2,
+	"cancel": 3,
+	"correct": 4,
+	"check": 5,
+	"finish": 6,
+}
+
 type Task struct {
 	Id int64 `json:"id" db:"id"`
 	Name string `json:"name" db:"name" binding:"required"`
@@ -10,6 +20,7 @@ type Task struct {
 	CompanyID int `json:"company_id" db:"company_id" binding:"required"`
 	Status int `json:"status" db:"status"`
 	Created int `json:"created" db:"created"`
+	Closed int `json:"closed" db:"closed"`
 }
 
 type TaskFilter struct {

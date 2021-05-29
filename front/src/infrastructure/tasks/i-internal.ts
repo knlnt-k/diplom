@@ -12,6 +12,7 @@ export interface ITask {
   companyID: number;
   status: IStatusObject;
   created: ITimeObject;
+  closed: ITimeObject;
 }
 
 export const taskSortFields = [

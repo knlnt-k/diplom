@@ -11,8 +11,20 @@
         </li>
       </template>
     </ul>
+
+    <Selector
+      class="reports__selector-projects"
+      v-if="reports.currentName === 'gantReport'"
+      v-model="projectID"
+      :options="projects"
+      :text-field="'name'"
+      :value-field="'id'"
+      :class-name="'selector-for-forms'"
+      :label="'Проект'"
+    />
+
     <div class="reports__chart">
-      <canvas id="chart" width="400" height="200"></canvas>
+      <div id="chart" v-if="reports.currentName"></div>
     </div>
   </div>
 </template>
@@ -31,6 +43,7 @@
   background-color: #eeeeee;
   transition: background-color 0.3s;
   cursor: pointer;
+  margin: 10px;
 }
 
 .reports__item:hover {
@@ -40,6 +53,10 @@
 .reports__chart {
   margin-top: 100px;
   overflow: auto;
+}
+
+.reports__selector-projects {
+  margin-top: 20px;
 }
 
 @media screen and (min-width: 768px) {

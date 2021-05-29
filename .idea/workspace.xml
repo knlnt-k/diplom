@@ -2,10 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="673d201f-ea84-4ee7-a8e9-3ae6aafeddfc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/migrations/000001_init.up.sql" beforeDir="false" afterPath="$PROJECT_DIR$/back/migrations/000001_init.up.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/pkg/handler/company.go" beforeDir="false" afterPath="$PROJECT_DIR$/back/pkg/handler/company.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/pkg/repository/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/back/pkg/repository/repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/pkg/repository/task-mysql.go" beforeDir="false" afterPath="$PROJECT_DIR$/back/pkg/repository/task-mysql.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/pkg/service/task.go" beforeDir="false" afterPath="$PROJECT_DIR$/back/pkg/service/task.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/task.go" beforeDir="false" afterPath="$PROJECT_DIR$/back/task.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/diplom/comments_tasks.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/db/diplom/comments_tasks.ibd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/diplom/companies.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/db/diplom/companies.ibd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/diplom/projects.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/db/diplom/projects.ibd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/diplom/schema_migrations.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/db/diplom/schema_migrations.ibd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/diplom/tasks.frm" beforeDir="false" afterPath="$PROJECT_DIR$/db/diplom/tasks.frm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/diplom/tasks.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/db/diplom/tasks.ibd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/diplom/times.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/db/diplom/times.ibd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/diplom/users.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/db/diplom/users.ibd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/ib_buffer_pool" beforeDir="false" afterPath="$PROJECT_DIR$/db/ib_buffer_pool" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/ib_logfile0" beforeDir="false" afterPath="$PROJECT_DIR$/db/ib_logfile0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/ibdata1" beforeDir="false" afterPath="$PROJECT_DIR$/db/ibdata1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/mysql/innodb_index_stats.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/db/mysql/innodb_index_stats.ibd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/mysql/innodb_table_stats.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/db/mysql/innodb_table_stats.ibd" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +55,7 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/front" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />

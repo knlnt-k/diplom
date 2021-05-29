@@ -1,6 +1,13 @@
 <template>
   <div class="reports-page">
-    <Reports :times="times" @getTimes="getTimes"/>
+    <Reports
+      :times="times"
+      :tasks="tasks"
+      :projects="projects"
+      @getProjects="getProjects"
+      @changeProjectID="changeProjectID"
+      @createReport="createReport"
+    />
   </div>
 </template>
 

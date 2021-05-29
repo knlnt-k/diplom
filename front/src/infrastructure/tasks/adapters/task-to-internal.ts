@@ -22,5 +22,11 @@ export const TaskToInternal: (task: Task) => ITask = task => ({
     getString(format: string): string {
       return dateToString(format, timestampToDate(this.seconds * 1000));
     }
+  },
+  closed: {
+    seconds: task.closed || 0,
+    getString(format: string): string {
+      return dateToString(format, timestampToDate(this.seconds * 1000));
+    }
   }
 });

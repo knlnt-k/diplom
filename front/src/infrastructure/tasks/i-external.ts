@@ -10,6 +10,7 @@ export interface Task {
   company_id: number;
   status?: number;
   created?: number;
+  closed?: number;
 }
 
 export type RequestCreateTask = Task;

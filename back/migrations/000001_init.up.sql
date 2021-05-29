@@ -28,7 +28,8 @@ CREATE TABLE tasks
     project_id int(20) not null,
     company_id int(20) not null,
     status int(1),
-    created int(12)
+    created int(12),
+    closed int(12)
 );
 
 CREATE TABLE projects
